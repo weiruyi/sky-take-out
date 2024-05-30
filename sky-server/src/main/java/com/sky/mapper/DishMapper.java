@@ -51,4 +51,9 @@ public interface DishMapper {
 
 
     void update(Dish dish);
+
+
+
+//    TODO: xml文件编写
+    List<Dish> list(Dish dish);
 }
