@@ -19,4 +19,11 @@ sky:
   wechat:
     appid: wx2fa1d0fe1f4282d5
     secret: 4274a3ca9eff20fcb29f80091570ea92
+    mchid: 111
+    mch-serial-no: 122
+    private-key-file-path: key.pem
+    api-v3-key: 123
+    we-chat-pay-cert-file-path: pem
+    notify-url: https://6effbf9f.r12.cpolar.top/notify/paySuccess
+    refund-notify-url: https://6effbf9f.r12.cpolar.top/notify/refundSuccess
 
