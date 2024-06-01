@@ -107,7 +107,9 @@ public class SetmealServiceImpl implements SetmealService {
     @Override
     public SetmealVO getSetmealById(Long id) {
         //首先在套餐表查询套餐信息
-        SetmealVO setmealVO = setmealMapper.getSetmealById(id);
+        Setmeal setmeal = setmealMapper.getById(id);
+        SetmealVO setmealVO = new SetmealVO();
+        BeanUtils.copyProperties(setmeal, setmealVO);
 
         //再查询套餐包含 的菜品信息
         List<SetmealDish> setmealDishes = setmealDishMapper.getSetmealDishBySetmealId(id);
@@ -149,8 +151,8 @@ public class SetmealServiceImpl implements SetmealService {
     public void deleteByIds(List<Long> ids) {
         //状态是否起售，起售不可删除
         for (Long id : ids) {
-            SetmealVO setmealVO = setmealMapper.getSetmealById(id);
-            if(setmealVO.getStatus() == StatusConstant.ENABLE){
+            Setmeal setmeal = setmealMapper.getById(id);
+            if(setmeal.getStatus() == StatusConstant.ENABLE){
                 throw new DeletionNotAllowedException(MessageConstant.SETMEAL_ON_SALE);
             }
         }

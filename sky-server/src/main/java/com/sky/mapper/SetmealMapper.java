@@ -50,7 +50,7 @@ public interface SetmealMapper {
     void insert(Setmeal setmeal);
 
     @Select("select * from setmeal where id = #{id}")
-    SetmealVO getSetmealById(Long id);
+    Setmeal getById(Long id);
 
     void deleteByIds(List<Long> ids);
 }
