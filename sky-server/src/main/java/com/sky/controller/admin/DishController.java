@@ -24,7 +24,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/admin/dish")
 @Slf4j
-@Api(value = "菜品相关接口")
+@Api(tags = "菜品相关接口")
 public class DishController {
 
     @Autowired
