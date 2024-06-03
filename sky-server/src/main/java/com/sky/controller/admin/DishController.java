@@ -124,6 +124,7 @@ public class DishController {
      * @param pattern
      */
     private void cleancache(String pattern){
+        log.info("clean redis cache");
         Set keys = redisTemplate.keys(pattern);
         redisTemplate.delete(keys);
     }
