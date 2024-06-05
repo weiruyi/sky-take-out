@@ -8,7 +8,7 @@
     </insert>
 
 
-    <update id="update" parameterType="Setmeal">
+    <update id="update" parameterType="com.sky.entity.Setmeal">
         update setmeal
         <set>
             <if test="name != null">
@@ -47,7 +47,7 @@
     </delete>
 
 
-    <select id="list" parameterType="Setmeal" resultType="Setmeal">
+    <select id="list" parameterType="com.sky.entity.Setmeal" resultType="com.sky.entity.Setmeal">
         select * from setmeal
         <where>
             <if test="name != null">
@@ -71,5 +71,17 @@
             <if test="status != null"> and status = #{status}</if>
         </where>
         order by create_time desc
+    </select>
+    <select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(id) from setmeal
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+
     </select>
 </mapper>
